@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build:
+      # look for Dockerfile.dev in
+      # current directory
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      # . current working directory
+      # : /app inside container
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # overwrite original command in this case
+    # npm run start
+    command: ["npm", "run", "test"]
+
