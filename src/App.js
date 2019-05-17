@@ -7,7 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Docer App!!!!</h1>
+        <h1>Docker, TravisCI and AWS</h1>
+        <h3>Elasticbeanstalk</h3>
+        <p>Using Docker, TravisCI and AWS for hosting this project.</p>
       </header>
     </div>
   );
