@@ -1,0 +1,15 @@
+# Any time Docker is used 'sudo' is required
+sudo: required
+
+# Install copy of docker in running container
+services:
+  - docker
+
+# Build docker image before test are run
+before_install:
+  - docker build -t dvsdockermtl/docker-react -f Dockerfile.dev .
+
+# Commands to run test suite
+# -- --coverage to exit test so it is not hanging
+script:
+  - docker run dvsdockermtl/docker-react npm run test -- --coverage
