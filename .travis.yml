@@ -12,4 +12,4 @@ before_install:
 # Commands to run test suite
 # -- --coverage to exit test so it is not hanging
 script:
-  - docker run dvsdockermtl/docker-react npm run test -- --coverage
+  - docker run dvsdockermtl/docker-react npm run ci_test -- --coverage
