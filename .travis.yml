@@ -13,3 +13,16 @@ before_install:
 # -- --watchAll=false to exit test so it is not hanging
 script:
   - docker run -e CI=true dvsdockermtl/docker-react npm run test -- --watchAll=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ca-central-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-ca-central-1-705957825205"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
